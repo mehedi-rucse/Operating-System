@@ -1,0 +1,12 @@
+
+When we execute processes by opening terminals in the following order:
+        ProcessA at first, then ProcessB, then ProcessC and at last ProcessD.
+
+
+
+1. ProcessA creates 3 pipes named 1stPipe,2ndPipe,3rdPipe.
+2. Then in ProcessB, As we write into 1stPipe.It waits for any reader to read and doesn't terminate.
+3. In ProcessC, As we write to 2ndPipe first then read from 1stPipe. ProcessC also waits for any reader to read first. As a result, It never reads from 1stPipe. 
+4. ProcessD does the same as ProcessC, As here also we write to 3rdPipe first then read from 2ndPipe. It keeps waiting for any reader to read first . As a result, It also never reads from 2ndPipe. 
+
+Hence ProcessB,ProcessC and ProcessD all three process remains stucked in the write process and never reads.
