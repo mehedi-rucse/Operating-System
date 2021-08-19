@@ -4,9 +4,8 @@
 #include<string.h>
 
 
-
-
 int main(int argc,char *args[]){
+
     char *str;
     int pipe0 = atoi(args[0]);
     int pipe1 = atoi(args[1]);
@@ -16,7 +15,6 @@ int main(int argc,char *args[]){
     
     close(pipe0);
     char *mul = str;
-    
     write(pipe1,mul,strlen(mul)+1);
     
     return 0;
